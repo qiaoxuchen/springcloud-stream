@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-cloud-rabbitmq-consumer" />
+        <module name="spring-cloud-rabbitmq-consumer2" />
+        <module name="spring-cloud-rabbitmq-producer" />
+        <module name="spring-cloud-rabbitmq-consumer (2)" />
+        <module name="spring-cloud-rabbitmq-consumer (1)" />
+        <module name="MQTest" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MQTest" target="1.8" />
+      <module name="spring-cloud-rabbitmq-consumer" target="1.8" />
+      <module name="spring-cloud-rabbitmq-consumer (1)" target="1.8" />
+      <module name="spring-cloud-rabbitmq-consumer (2)" target="1.8" />
+      <module name="spring-cloud-rabbitmq-consumer2" target="1.8" />
+      <module name="spring-cloud-rabbitmq-producer" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-cloud-rabbitmq-consumer" options="-parameters" />
+      <module name="spring-cloud-rabbitmq-consumer (1)" options="-parameters" />
+      <module name="spring-cloud-rabbitmq-consumer (2)" options="-parameters" />
+      <module name="spring-cloud-rabbitmq-consumer2" options="-parameters" />
+      <module name="spring-cloud-rabbitmq-producer" options="-parameters" />
+    </option>
+  </component>
+</project>

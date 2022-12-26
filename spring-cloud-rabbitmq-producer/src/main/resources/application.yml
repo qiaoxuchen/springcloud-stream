@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    stream:
+      default-binder: rabbit  # 如果有多个binder，这里需要设置一个默认的
+      binders:          # 负责与MQ集成的组件  需要绑定的rabbitmq的服务信息,可以绑定多个服务，如果大于一个，需要设置默认binder（如上配置）
+        rabbit:             # binder  组件的名称，用于binding整合  与下边binding的名称相同
+          type: rabbit        # 消息组件类型 可以是rabbit、kafka、redis等
+          environment:     #配置rabbimq连接环境
+            spring:
+              rabbitmq:
+                host: 82.156.175.31
+                username: guest
+                password: guest
+                port: 5672
+        cospowerBinding2: # 定义的名称，用于binding整合  与下边binding的名称相同
+          type: kafka        # 消息组件类型
+      rabbit: # 绑定属性  如果是kafka，则这块写kafka
+        bindings:
+          loginStatusOutPut:
+            producer:
+              routing-key-expression: headers.type
+      bindings:                                   # 服务整合，绑定binder  MQ中间件与最终用户提供的应用程序代码(生产者/消费者)之间的桥梁
+        loginStatusOutPut:                             # 相当于exchange
+          binder: rabbit                          # 绑定组件和代码逻辑
+          destination: exchange.cospower.loginStatus              # 制定目的地
+          content-type: application/json          # 设置消息类型 json
+
+
+
+
+
+
